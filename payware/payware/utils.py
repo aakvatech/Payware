@@ -569,3 +569,10 @@ def set_employee_base_salary_in_hours(doc,method):
 		doc.payroll_date = str(doc.payroll_date)
 		base_salary_in_hours = get_employee_base_salary_in_hours(doc.employee,doc.payroll_date)["base_salary_in_hours"]
 		doc.amount = doc.hourly_rate / 100 * doc.no_of_hours * base_salary_in_hours
+
+def set_all_statutory_rates(doc,method):
+	statutory_rates = frappe.get_single('Payware Settings')
+	doc.sdl_rate = statutory_rates.skills_development_levy
+	doc.pension_rate = statutory_rates.pension_rate
+	doc.wcf_rate = statutory_rates.wcf_rate
+	doc.heslb_rate = statutory_rates.heslb_rate

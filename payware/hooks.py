@@ -214,6 +214,9 @@ doc_events = {
     "Employee": {
         "validate": "payware.payware.doctype.biometric_settings.biometric_settings.check_employee_bio_info"
     },
+    "Salary Structure Assignment": {
+        "validate": "payware.payware.utils.set_all_statutory_rates",
+    },
 }
 
 # Scheduled Tasks

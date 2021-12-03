@@ -2807,5 +2807,57 @@
   "translatable": 0,
   "unique": 0,
   "width": null
+ },
+ {
+    "name": "Salary Structure Assignment-sdl_rate",
+    "modified": "2021-12-03 15:09:57.334528",
+    "modified_by": "Administrator",
+    "idx": 17,
+    "dt": "Salary Structure Assignment",
+    "label": "SDL Rate",
+    "fieldname": "sdl_rate",
+    "insert_after": "variable",
+    "fieldtype": "Percent",
+    "doctype": "Custom Field"
+ },
+ {
+    "name": "Salary Structure Assignment-pension_rate",
+    "modified": "2021-12-03 16:15:57.837827",
+    "modified_by": "Administrator",
+    "idx": 18,
+    "dt": "Salary Structure Assignment",
+    "label": "Pension Rate",
+    "fieldname": "pension_rate",
+    "insert_after": "sdl_rate",
+    "fieldtype": "Percent",
+    "hidden": 1,
+    "doctype": "Custom Field"
+},
+{
+    "name": "Salary Structure Assignment-wcf_rate",
+    "modified": "2021-12-03 16:15:58.464201",
+    "modified_by": "Administrator",
+    "idx": 19,
+    "dt": "Salary Structure Assignment",
+    "label": "WCF Rate",
+    "fieldname": "wcf_rate",
+    "insert_after": "pension_rate",
+    "fieldtype": "Percent",
+    "hidden": 1,
+    "doctype": "Custom Field"
+ },
+ {
+    "name": "Salary Structure Assignment-heslb_rate",
+    "modified": "2021-12-03 16:15:58.740182",
+    "modified_by": "Administrator",
+    "idx": 20,
+    "dt": "Salary Structure Assignment",
+    "label": "HESLB Rate",
+    "fieldname": "heslb_rate",
+    "insert_after": "wcf_rate",
+    "fieldtype": "Percent",
+    "precision": "",
+    "hidden": 1,
+    "doctype": "Custom Field"
  }
 ]

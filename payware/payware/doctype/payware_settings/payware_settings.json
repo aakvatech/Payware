@@ -28,8 +28,13 @@
   "social_security_control_number",
   "column_break_12",
   "social_security_fund_registration_district",
+  "pension_rate",
   "wcf_workmen_compensation_fund_section",
-  "wcf_registration_number"
+  "wcf_registration_number",
+  "column_break_25",
+  "wcf_rate",
+  "heslb_section",
+  "heslb_rate"
  ],
  "fields": [
   {
@@ -100,7 +105,7 @@
   {
    "fieldname": "skills_development_levy",
    "fieldtype": "Percent",
-   "label": "Skills Development Levy"
+   "label": "SDL Rate (%)"
   },
   {
    "fieldname": "employer_registration_numbers_section",
@@ -152,12 +157,36 @@
    "fieldname": "social_security_control_number",
    "fieldtype": "Data",
    "label": "Social Security Control Number"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wcf_rate",
+   "fieldtype": "Percent",
+   "label": "WCF Rate (%)"
+  },
+  {
+   "fieldname": "heslb_section",
+   "fieldtype": "Section Break",
+   "label": "HESLB"
+  },
+  {
+   "fieldname": "heslb_rate",
+   "fieldtype": "Percent",
+   "label": "HESLB Rate (%)"
+  },
+  {
+   "fieldname": "pension_rate",
+   "fieldtype": "Percent",
+   "label": "Pension Rate (%)"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-07-09 16:58:05.578372",
+ "modified": "2021-12-03 16:19:23.567097",
  "modified_by": "Administrator",
  "module": "Payware",
  "name": "Payware Settings",
