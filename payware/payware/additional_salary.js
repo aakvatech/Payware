@@ -11,8 +11,7 @@ frappe.ui.form.on('Additional Salary', {
 		frm.set_value("no_of_hours", null);
 	},
 	salary_component: function(frm) {
-		frm.set_value("based_on_hourly_rate", null);
-		frm.set_value("hourly_rate", null);
+		frm.set_value("no_of_hours", null);
 	},
 	no_of_hours: function(frm) {
 		if (frm.doc.employee && frm.doc.payroll_date) {
