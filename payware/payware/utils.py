@@ -737,34 +737,23 @@ def in_words(integer, in_million=True):
 
 
 @frappe.whitelist()
-def get_employee_base_salary_in_hours(employee, payroll_date):
-    """
-    Returns the base salary in hours of the employee for this month
-    """
-    last_salary_assignment = frappe.get_all(
-        "Salary Structure Assignment",
-        filters={"employee": employee, "from_date": ["<=", payroll_date]},
-        fields=["name", "base"],
-        order_by="`from_date` DESC, `creation` DESC",
-        limit=1,
-    )
-    last_salary_assignment = (
-        last_salary_assignment[0] if last_salary_assignment else None
-    )
-    payroll_date = datetime.strptime(payroll_date, "%Y-%m-%d")
+def get_employee_base_salary_in_hours(employee,payroll_date):
+	"""
+	Returns the base salary in hours of the employee for this month
+	"""
+	last_salary_assignment = frappe.get_all("Salary Structure Assignment", filters={
+			'employee': employee, 'from_date': ['<=', payroll_date]},
+			fields=['name', 'base'],
+			order_by='`from_date` DESC, `creation` DESC',
+			limit=1)
+	last_salary_assignment = last_salary_assignment[0] if last_salary_assignment else None
+	# payroll_date = datetime.strptime(payroll_date, '%Y-%m-%d')
 
-    working_hours_per_month = frappe.db.get_single_value(
-        "Payware Settings", "working_hours_per_month"
-    )
-    if not working_hours_per_month:
-        frappe.throw(
-            __(
-                "Working Hours per Month not defind in Payware settings. Define it there and try again."
-            )
-        )
-    base_salary_in_hours = (last_salary_assignment.base or 0) / working_hours_per_month
-    return {"base_salary_in_hours": base_salary_in_hours}
-
+	working_hours_per_month = frappe.db.get_single_value('Payware Settings', 'working_hours_per_month')
+	if not working_hours_per_month:
+		frappe.throw(__("Working Hours per Month not defind in Payware settings. Define it there and try again."))
+	base_salary_in_hours = (last_salary_assignment.base or 0) / working_hours_per_month
+	return {"base_salary_in_hours": base_salary_in_hours}
 
 #
 # convert currency to words
