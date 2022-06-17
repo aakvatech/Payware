@@ -163,7 +163,7 @@
 		var tax_amount_total=0;
 		var paye_total=0;
 		%}
-		{% for(var i=0, l=data.length; i<=l-1; i++) { %} <TR>
+		{% for(var i=0, l=data.length; i<=l-2; i++) { %} <TR>
 			{%
 			var taxable_amount = data[i][ __("gross")] - data[i][ __("nssf")];
 			var basic = data[i][ __("basic")]|| 0;
