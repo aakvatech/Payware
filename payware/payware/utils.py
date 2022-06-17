@@ -498,7 +498,7 @@ def get_employee_base_salary_in_hours(employee,payroll_date):
 			order_by='`from_date` DESC, `creation` DESC',
 			limit=1)
 	last_salary_assignment = last_salary_assignment[0] if last_salary_assignment else None
-	payroll_date = datetime.strptime(payroll_date, '%Y-%m-%d')
+	# payroll_date = datetime.strptime(payroll_date, '%Y-%m-%d')
 
 	working_hours_per_month = frappe.db.get_single_value('Payware Settings', 'working_hours_per_month')
 	if not working_hours_per_month:
