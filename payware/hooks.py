@@ -28,7 +28,6 @@ app_license = "GNU General Public License (v3)"
 # include js in doctype views
 doctype_js = {
     "Loan": "payware/loan.js",
-    "Additional Salary": "payware/additional_salary.js",
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
