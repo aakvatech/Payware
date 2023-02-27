@@ -385,6 +385,8 @@ def create_additional_salary_journal(doc, method):
 		journal_entry.user_remark = _('{2} by {1} for {3}').format(doc.doctype, doc.name, doc.salary_component, doc.employee_name)
 		journal_entry.company = doc.company
 		journal_entry.posting_date = doc.payroll_date
+		journal_entry.referance_doctype = doc.doctype
+		journal_entry.referance_docname = doc.name
 
 		payment_amount = flt(doc.amount, precision)
 
