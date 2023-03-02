@@ -1,0 +1,50 @@
+pull_request_rules:
+  - name: Assign author to review conflict and add label of 'conflict'
+    conditions:
+      - conflict
+    actions:
+      label:
+        add:
+          - conflict
+      assign:
+        add_users:
+          - aakvatech
+          - "{{author}}"
+      comment:
+        message: "@{{author}} this pull request is now in conflict 😩"
+
+
+  - name: backport to develop branch
+    conditions:
+      - label = develop
+    actions:
+      backport:
+        branches:
+          - develop
+        assignees:
+          - aakvatech
+          - "{{author}}"
+
+
+  - name: backport to version-13 branch
+    conditions:
+      - label = version-13
+    actions:
+      backport:
+        branches:
+          - version-13
+        assignees:
+          - aakvatech
+          - "{{author}}"
+
+ 
+  - name: backport to version-14 branch
+    conditions:
+      - label = version-14
+    actions:
+      backport:
+        branches
+          - version-14
+        assignees:
+          - aakvatech
+          - "{{author}}"
