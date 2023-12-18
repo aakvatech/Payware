@@ -26,9 +26,7 @@ app_license = "GNU General Public License (v3)"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {
-    "Loan": "payware/loan.js",
-}
+# doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -192,51 +190,34 @@ fixtures = [
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-    "Loan": {"validate": "payware.payware.utils.validate_loan"},
-    "Salary Slip": {
-        "on_submit": "payware.payware.utils.set_loan_paid",
-        "on_cancel": "payware.payware.utils.set_loan_paid",
-        "before_insert": "payware.payware.salary_slip_hook.generate_component_in_salary_slip_insert",
-        "before_save": "payware.payware.salary_slip_hook.generate_component_in_salary_slip_update",
-    },
-    "Loan Repayment Not From Salary": {
-        "on_submit": "payware.payware.utils.create_loan_repayment_jv",
-        "validate": "payware.payware.utils.validate_loan_repayment_nfs",
-        "on_cancel": "payware.payware.utils.create_loan_repayment_jv",
-    },
-    "Additional Salary": {
-        "on_submit": "payware.payware.utils.create_additional_salary_journal",
-        "on_cancel": "payware.payware.utils.create_additional_salary_journal",
-        "before_validate": "payware.payware.utils.set_employee_base_salary_in_hours",
-    },
-    "Employee": {
-        "validate": "payware.payware.doctype.biometric_settings.biometric_settings.check_employee_bio_info"
-    },
-}
+# doc_events = {
+# 	"*": {
+# 		"on_update": "method",
+# 		"on_cancel": "method",
+# 		"on_trash": "method"
+# 	}
+# }
 
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-    # 	"all": [
-    # 		"payware.tasks.all"
-    # 	],
-    "daily": [
-        "payware.payware.utils.generate_additional_salary_records",
-        "payware.payware.doctype.biometric_settings.biometric_settings.auto_shift_assignment_for_active_today",
-    ],
-    "hourly": [
-        "payware.payware.doctype.biometric_settings.biometric_settings.auto_get_transactions",
-        "payware.payware.doctype.biometric_settings.biometric_settings.auto_make_employee_checkin",
-    ]
-    # 	"weekly": [
-    # 		"payware.tasks.weekly"
-    # 	]
-    # 	"monthly": [
-    # 		"payware.tasks.monthly"
-    # 	]
-}
+# scheduler_events = {
+# 	"all": [
+# 		"payware.tasks.all"
+# 	],
+# "daily": [
+# 		"payware.tasks.weekly"
+# ],
+# "hourly": [
+# 		"payware.tasks.weekly"
+# ]
+# 	"weekly": [
+# 		"payware.tasks.weekly"
+# 	]
+# 	"monthly": [
+# 		"payware.tasks.monthly"
+# 	]
+# }
 
 # Testing
 # -------
