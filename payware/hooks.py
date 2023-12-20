@@ -75,116 +75,6 @@ app_license = "GNU General Public License (v3)"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-fixtures = [
-    {
-        "doctype": "Custom Field",
-        "filters": [
-            [
-                "name",
-                "in",
-                (
-                    "Additional Salary-auto_created_based_on",
-                    "Additional Salary-auto_repeat_details",
-                    "Additional Salary-auto_repeat_end_date",
-                    "Additional Salary-auto_repeat_frequency",
-                    "Additional Salary-based_on_hourly_rate",
-                    "Additional Salary-column_break_15",
-                    "Additional Salary-column_break_19",
-                    "Additional Salary-hourly_rate",
-                    "Additional Salary-last_transaction_amount",
-                    "Additional Salary-last_transaction_date",
-                    "Additional Salary-last_transaction_details",
-                    "Additional Salary-no_of_hours",
-                    "Additional Salary-section_break_17",
-                    "Employee-area",
-                    "Employee-attachments",
-                    "Employee-bank_code",
-                    "Employee-biometric_code",
-                    "Employee-biometric_id",
-                    "Employee-column_break_49",
-                    "Employee-column_break_50",
-                    "Employee-column_break_54",
-                    "Employee-employee_ot_component",
-                    "Employee-enable_biometric",
-                    "Employee-files",
-                    "Employee-national_identity",
-                    "Employee-other_allowance",
-                    "Employee-overtime_components",
-                    "Employee-pension_fund_number",
-                    "Employee-pension_fund",
-                    "Employee-statutory_details",
-                    "Employee-tin_number",
-                    "Employee-wcf_number",
-                    "Employee-worker_subsistence",
-                    "Loan-loan_repayments_not_from_salary",
-                    "Loan-not_from_salary_loan_repayments",
-                    "Loan-total_nsf_repayments",
-                    "Payroll Entry-bank_account_for_transfer",
-                    "Payroll Entry-bank_payment_details",
-                    "Payroll Entry-cheque_date",
-                    "Payroll Entry-cheque_number",
-                    "Payroll Entry-column_break_34",
-                    "Payroll Entry-section_break_35",
-                    "Repayment Schedule-change_amount",
-                    "Repayment Schedule-changed_interest_amount",
-                    "Repayment Schedule-changed_principal_amount",
-                    "Salary Component-based_on_hourly_rate",
-                    "Salary Component-column_break_16",
-                    "Salary Component-create_cash_journal",
-                    "Salary Component-hourly_rate",
-                    "Salary Component-payware_specifics",
-                    "Salary Component-sdl_emolument_category",
-                    "Salary Slip-overtime_components",
-                    "Salary Slip-salary_slip_ot_component",
-                ),
-            ]
-        ],
-    },
-    {
-        "doctype": "Property Setter",
-        "filters": [
-            [
-                "name",
-                "in",
-                (
-                    "Additional Salary-naming_series-options",
-                    "Additional Salary-overwrite_salary_structure_amount-default",
-                    "Attendance-leave_type-allow_on_submit",
-                    "Attendance-main-track_changes",
-                    "Attendance-status-allow_on_submit",
-                    "Employee-company-in_list_view",
-                    "Employee-department-permlevel",
-                    "Employee-image-hidden",
-                    "Employee-job_profile-permlevel",
-                    "Employee-main-track_changes",
-                    "Leave Application-naming_series-options",
-                    "Loan-applicant_name-in_list_view",
-                    "Loan-applicant_name-in_standard_filter",
-                    "Loan-loan_amount-in_list_view",
-                    "Loan-loan_type-in_list_view",
-                    "Loan-loan_type-in_standard_filter",
-                    "Loan-posting_date-in_list_view",
-                    "Loan-repay_from_salary-allow_on_submit",
-                    "Loan-repayment_method-options",
-                    "Loan-search_fields",
-                    "Loan-status-in_list_view",
-                    "Loan-status-in_standard_filter",
-                    "Payroll Entry-branch-in_list_view",
-                    "Payroll Entry-company-in_standard_filter",
-                    "Payroll Entry-company-print_width",
-                    "Payroll Entry-end_date-in_list_view",
-                    "Payroll Entry-posting_date-in_list_view",
-                    "Salary Structure Assignment-base-in_list_view",
-                    "Salary Structure Assignment-company-in_standard_filter",
-                    "Salary Structure Assignment-employee-in_list_view",
-                    "Salary Structure-deductions-allow_on_submit",
-                    "Salary Structure-earnings-allow_on_submit",
-                    "Repayment Schedule-payment_date-read_only",
-                ),
-            ]
-        ],
-    },
-]
 
 # Document Events
 # ---------------
@@ -230,3 +120,8 @@ fixtures = [
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "payware.event.get_events"
 # }
+
+# Uninstallation
+# ------------
+
+before_uninstall = "payware.before_uninstall.before_uninstall"
