@@ -5,6 +5,23 @@ import frappe
 def before_uninstall():
     delete_custom_fields()
     delete_property_setters()
+    delete_payware_doctype()
+    delete_payware_print_formats()
+    delete_payware_reports()
+
+
+def delete_payware_doctype():
+    doctypes = frappe.get_all("DocType", filters={"module": "Payware"})
+    for doctype in doctypes:
+        try:
+            frappe.delete_doc("DocType", doctype.name)
+        except Exception as e:
+            print(f"Error occured when deleting doctype", e)
+            click.secho("Clicked Error occured when deleting doctype", fg="red")
+
+    frappe.clear_cache()
+    print("Payware doctypes deleted successfully")
+    click.secho("Clicked Payware doctypes deleted successfully", fg="green")
 
 
 def delete_custom_fields():
@@ -132,3 +149,29 @@ def get_property_setter_to_delete():
     ]
 
     return property_setters
+
+def delete_payware_print_formats():
+    print_formats = frappe.get_all("Print Format", filters={"module": "Payware", "is_standard": 1})
+    for print_format in print_formats:
+        try:
+            frappe.delete_doc("Print Format", print_format.name)
+        except Exception as e:
+            print(f"Error occured when deleting print format", e)
+            click.secho("Clicked Error occured when deleting print format", fg="red")
+
+    frappe.clear_cache()
+    print("Payware print formats deleted successfully")
+    click.secho("Clicked Payware print formats deleted successfully", fg="green")
+
+def delete_payware_reports():
+    reports = frappe.get_all("Report", filters={"module": "Payware", "is_standard": 1})
+    for report in reports:
+        try:
+            frappe.delete_doc("Report", report.name)
+        except Exception as e:
+            print(f"Error occured when deleting report", e)
+            click.secho("Clicked Error occured when deleting report", fg="red")
+
+    frappe.clear_cache()
+    print("Payware reports deleted successfully")
+    click.secho("Clicked Payware reports deleted successfully", fg="green")
