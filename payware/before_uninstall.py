@@ -16,12 +16,10 @@ def delete_payware_doctype():
         try:
             frappe.delete_doc("DocType", doctype.name)
         except Exception as e:
-            print(f"Error occured when deleting doctype", e)
-            click.secho("Clicked Error occured when deleting doctype", fg="red")
+            click.secho("Error occured when deleting payware doctype", fg="red")
 
     frappe.clear_cache()
-    print("Payware doctypes deleted successfully")
-    click.secho("Clicked Payware doctypes deleted successfully", fg="green")
+    click.secho("Payware doctypes deleted successfully", fg="green")
 
 
 def delete_custom_fields():
@@ -33,13 +31,11 @@ def delete_custom_fields():
                 filters={"dt": doctype, "fieldname": ["in", fields]},
             )
         except Exception as e:
-            print(f"Error occured when deleting custom fields", e)
-            click.secho("Clicked Error occured when deleting custom fields", fg="red")
+            click.secho("Error occured when deleting Payware custom fields", fg="red")
 
         frappe.clear_cache(doctype=doctype)
 
-    print("Custom fields deleted successfully")
-    click.secho("Clicked Custom fields deleted successfully", fg="green")
+    click.secho("Payware Custom fields deleted successfully", fg="green")
 
 
 def delete_property_setters():
@@ -54,14 +50,12 @@ def delete_property_setters():
             if property_setter.get("doc_type") not in unique_doctypes:
                 unique_doctypes.append(property_setter.get("doc_type"))
         except Exception as e:
-            print(f"Error occured when deleting property setter", e)
-            click.secho("Clicked Error occured when deleting property setter", fg="red")
+            click.secho("Error occured when deleting Payware property setter", fg="red")
 
     for doctype in unique_doctypes:
         frappe.clear_cache(doctype=doctype)
 
-    print("Property setters deleted successfully")
-    click.secho("Clicked Property setters deleted successfully", fg="green")
+    click.secho("Payware Property setters deleted successfully", fg="green")
 
 
 def get_custom_fields_to_remove():
@@ -150,28 +144,30 @@ def get_property_setter_to_delete():
 
     return property_setters
 
+
 def delete_payware_print_formats():
-    print_formats = frappe.get_all("Print Format", filters={"module": "Payware", "is_standard": 1})
+    print_formats = frappe.get_all(
+        "Print Format", filters={"module": "Payware", "standard": "Yes"}
+    )
     for print_format in print_formats:
         try:
             frappe.delete_doc("Print Format", print_format.name)
         except Exception as e:
-            print(f"Error occured when deleting print format", e)
-            click.secho("Clicked Error occured when deleting print format", fg="red")
+            click.secho("Error occured when deleting Payware print format", fg="red")
 
     frappe.clear_cache()
-    print("Payware print formats deleted successfully")
-    click.secho("Clicked Payware print formats deleted successfully", fg="green")
+    click.secho("Payware print formats deleted successfully", fg="green")
+
 
 def delete_payware_reports():
-    reports = frappe.get_all("Report", filters={"module": "Payware", "is_standard": 1})
+    reports = frappe.get_all(
+        "Report", filters={"module": "Payware", "is_standard": "Yes"}
+    )
     for report in reports:
         try:
             frappe.delete_doc("Report", report.name)
         except Exception as e:
-            print(f"Error occured when deleting report", e)
-            click.secho("Clicked Error occured when deleting report", fg="red")
+            click.secho("Error occured when deleting Payware report", fg="red")
 
     frappe.clear_cache()
-    print("Payware reports deleted successfully")
-    click.secho("Clicked Payware reports deleted successfully", fg="green")
+    click.secho("Payware reports deleted successfully", fg="green")
