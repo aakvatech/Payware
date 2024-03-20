@@ -4,6 +4,7 @@ import frappe
 
 
 def get_data():
+	return
 	config = [
 		{
 			"label": _("Payware Documents"),
