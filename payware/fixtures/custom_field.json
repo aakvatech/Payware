@@ -1147,7 +1147,7 @@
   "name": "Employee-pension_fund",
   "no_copy": 0,
   "non_negative": 0,
-  "options": "\nNSSF\nPPF",
+  "options": "\nNSSF\nPPF\nPSSSF",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
