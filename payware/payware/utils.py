@@ -6,7 +6,7 @@ from dateutil.relativedelta import relativedelta
 from frappe.utils import cint, format_datetime,get_datetime_str,now_datetime,add_days,today,formatdate,date_diff,getdate,add_months,flt, nowdate, fmt_money, add_to_date, DATE_FORMAT, rounded
 from frappe import _
 from erpnext.accounts.utils import get_fiscal_year
-from erpnext.hr.doctype.employee.employee import get_holiday_list_for_employee
+from erpnext.setup.doctype.employee.employee import get_holiday_list_for_employee
 from num2words import num2words
 from calendar import monthrange
 from datetime import datetime

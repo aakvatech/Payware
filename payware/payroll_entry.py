@@ -9,7 +9,7 @@ from dateutil.relativedelta import relativedelta
 from frappe.utils import cint, flt, nowdate, add_days, getdate, fmt_money, add_to_date, DATE_FORMAT, date_diff
 from frappe import _
 from erpnext.accounts.utils import get_fiscal_year
-from erpnext.hr.doctype.employee.employee import get_holiday_list_for_employee
+from hrms.hr.doctype.employee.employee import get_holiday_list_for_employee
 
 class PayrollEntry(Document):
 	def on_submit(self):
